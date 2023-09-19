@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "nodemon app.js",
     "lint:fix": "eslint . --fix",
@@ -26,6 +26,9 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.5.2",
     "multer": "^1.4.5-lts.1",
-    "nodemailer": "^6.9.5"
+    "mysql2": "^3.6.1",
+    "nodemailer": "^6.9.5",
+    "nodemon": "^3.0.1",
+    "sequelize": "^6.11.0"
   }
 }
