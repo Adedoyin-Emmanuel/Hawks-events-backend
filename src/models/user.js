@@ -1,18 +1,5 @@
-const sequelize = require("sequelize");
 const { DataTypes } = require("sequelize");
-
-const Sequelize = new sequelize("hng", "gerard", "password", {
-  host: "54.221.51.134",
-  dialect: "mysql",
-});
-
-Sequelize.authenticate()
-  .then(() => {
-    console.log("Connection has been established successfully.");
-  })
-  .catch((error) => {
-    console.error("Unable to connect to the database: ", error);
-  });
+const Sequelize = require('../../db/database')
 
 let user = Sequelize.define("hng-hawks", {
   Uuid: {
@@ -42,5 +29,5 @@ Sequelize.sync()
   .catch((error) => {
     console.error("Unable to create table : ", error);
   });
-
+  
 module.exports = user;

@@ -1,20 +1,16 @@
 const dotenv = require("dotenv");
-dotenv.config();
+const path = require('path')
+dotenv.config({path:path.resolve(__dirname, "../../config.env")});
 
 const constants = {
-  MYSQL_USER: "gerard",
-  MYSQL_SERVER: "54.221.51.134",
-  MYSQL_PASSWORD: "password",
-  MYSQL_DB: "hng",
+  MYSQL_USER: process.env.MYSQL_USER,
+  MYSQL_SERVER: process.env.MYSQL_SERVER,
+  MYSQL_PASSWORD: process.env.MYSQL_PASSWORD,
+  MYSQL_DIALECT:process.env.MYSQL_DIALECT,
+  MYSQL_DB: process.env.MYSQL_DB,
   APP_NAME: "EVENTS PLANNING APP",
   PORT: process.env.PORT || 5000,
-  DATABASE_URI: process.env.DATABASE_URI,
-  MYSQL_URL: process.env.DATABASE_URL,
-  JWT_PUBLIC_KEY: process.env.JWT_PUBLIC_KEY,
-  JWT_USER_LOGIN_EXPIRATION: "24h",
-  EMAIL_USER: process.env.EMAIL_USER,
-  EMAIL_PASSWORD: process.env.EMAIL_PASSWORD,
-  BASE_URL: `http://localhost/api/v1/${PORT}`,
+  BASE_URL: `http://localhost/api/v1/${this.PORT}`,
 
   CLOUDINARY: {
     NAME: process.env.CLOUDINARY_NAME,
