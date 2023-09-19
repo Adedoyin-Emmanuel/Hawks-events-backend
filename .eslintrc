@@ -1,0 +1,35 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true
+    },
+    "extends": [
+        "wesbos"
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "rules": {
+        "class-methods-use-this": "off",
+        "no-underscore-dangle": "off",
+        "import/newline-after-import": "off",
+        "import/no-extraneous-dependencies":"off",
+        "avoidEscape":true,
+        "allowTemplateLiterals":true, 
+        "no-unused-vars": [
+            1,
+            {
+              "ignoreRestSiblings": true,
+              "argsIgnorePattern": "res|next|^err|^_",
+              "varsIgnorePattern": "^_"
+            }
+          ],
+          "prettier/prettier": [
+            1,
+            {
+              "endOfLine": "auto"
+            }
+          ]
+    }
+}
