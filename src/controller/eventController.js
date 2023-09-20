@@ -1,5 +1,27 @@
 const Event = require('../models/events');
 
+exports.getEventDyId = async(req,res) =>{
+    // Retrieve the event by its ID
+    const eventId = req.params.id;
+
+    try {
+        const event =await Event.findOne({
+            where: {
+                id:eventId
+            }
+        });
+        if (!event){
+            res.status(404).json({error: "Event not Found"});
+        }
+         // Send the event as the response
+        res.status(200).json(event);
+    } catch (error) {
+        // Handle any errors that occur during the process
+    console.error('Error retrieving event by ID:', error);
+    res.status(500).json({ error: 'Internal server error' });   
+    }
+}
+
 exports.updateEvent = async (req, res) => {
   const eventId = req.params.eventId;
   const {
