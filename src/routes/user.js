@@ -9,6 +9,7 @@ const {
 
 // test this route to see if your set up is working 
 router.get('/', alloha)
+
 router.post('/register', register)
 router.post('/login', login)
 router.get('/profile', profile)
