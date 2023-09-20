@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon app.js",
     "lint:fix": "eslint . --fix",
-    "start": "node app.js"
+    "start": "node app.js",
+    "start:dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +30,7 @@
     "mysql2": "^3.6.1",
     "nodemailer": "^6.9.5",
     "nodemon": "^3.0.1",
-    "sequelize": "^6.11.0"
+    "sequelize": "^6.11.0",
+    "uuidv4": "^6.2.13"
   }
 }

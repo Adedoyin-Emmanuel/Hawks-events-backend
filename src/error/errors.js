@@ -29,6 +29,13 @@ class AlreadyExist extends CustomError {
   }
 }
 
+class internalServerError extends CustomError {
+  constructor(message) {
+    super(message);
+    this.statusCode = 500
+  }
+}
+
 module.exports = {
-  UnAuthorizedError, BadRequestError, NotFound, AlreadyExist,
+  UnAuthorizedError, BadRequestError, NotFound, AlreadyExist, internalServerError
 };
