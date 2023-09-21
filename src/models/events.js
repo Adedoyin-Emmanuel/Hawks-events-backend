@@ -47,7 +47,12 @@ const Event = Sequelize.define('Event', {
   },
 });
 
-// Define associations
-Event.belongsTo(User, { foreignKey: 'creator_id', allowNull: false });
-
+Sequelize.sync()
+  .then(() => {
+    console.log("Events table created successfully!");
+  })
+  .catch((error) => {
+    console.error("Unable to create event table : ", error);
+  });
+  
 module.exports = Event;
