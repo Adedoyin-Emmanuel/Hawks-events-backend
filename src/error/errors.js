@@ -1,5 +1,5 @@
 /* eslint-disable max-classes-per-file */
-const CustomError = require('./custom-errors');
+const CustomError = require('./customErrors');
 
 class UnAuthorizedError extends CustomError {
   constructor(message) {
