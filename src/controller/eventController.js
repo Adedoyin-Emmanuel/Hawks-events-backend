@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const BadRequestError = require("../error/errors");
 const Event = require("../models/events");
 
@@ -22,6 +23,31 @@ exports.getEventDyId = async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 };
+=======
+const Event = require('../models/events');
+
+exports.getEventDyId = async(req,res) =>{
+    // Retrieve the event by its ID
+    const eventId = req.params.id;
+
+    try {
+        const event =await Event.findOne({
+            where: {
+                id:eventId
+            }
+        });
+        if (!event){
+            res.status(404).json({error: "Event not Found"});
+        }
+         // Send the event as the response
+        res.status(200).json(event);
+    } catch (error) {
+        // Handle any errors that occur during the process
+    console.error('Error retrieving event by ID:', error);
+    res.status(500).json({ error: 'Internal server error' });   
+    }
+}
+>>>>>>> ef79a781f8b0bc236b284b700ba66026395af2df
 
 exports.updateEvent = async (req, res) => {
   const eventId = req.params.eventId;
@@ -40,7 +66,11 @@ exports.updateEvent = async (req, res) => {
   const existingEvent = await Event.findByPk(eventId);
 
   if (!existingEvent) {
+<<<<<<< HEAD
     return res.status(404).json({ error: "Event not found" });
+=======
+    return res.status(404).json({ error: 'Event not found' });
+>>>>>>> ef79a781f8b0bc236b284b700ba66026395af2df
   }
 
   // Update event details using Sequelize
@@ -55,6 +85,7 @@ exports.updateEvent = async (req, res) => {
 
   await existingEvent.save();
 
+<<<<<<< HEAD
   res.status(200).json({ message: "Event updated successfully" });
 };
 
@@ -94,4 +125,7 @@ exports.postEvent = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
+=======
+  res.status(200).json({ message: 'Event updated successfully' });
+>>>>>>> ef79a781f8b0bc236b284b700ba66026395af2df
 };
