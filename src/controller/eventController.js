@@ -60,19 +60,14 @@ exports.updateEvent = async (req, res) => {
 exports.deleteEvent = async (req, res) => {
   const eventId = req.params.eventId;
 
-  try {
-    // Check if the event exists
-    const existingEvent = await Event.findByPk(eventId);
+  // Check if the event exists
+  const existingEvent = await Event.findByPk(eventId);
 
-    if (!existingEvent) {
-      return res.status(404).json({ error: "Event not found" });
-    }
-
-    //delete the event
-    await existingEvent.destroy();
-    return res.status(200).json({ message: "Event deleted successfully" });
-  } catch (error) {
-    console.error("Error deleting event by ID:", error);
-    res.status(500).json({ error: "Internal server error" });
+  if (!existingEvent) {
+    return res.status(404).json({ error: "Event not found" });
   }
+
+  //delete the event
+  await existingEvent.destroy();
+  return res.status(200).json({ message: "Event deleted successfully" });
 };
