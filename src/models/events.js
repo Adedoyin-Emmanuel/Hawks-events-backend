@@ -3,10 +3,11 @@ const Sequelize = require('../../db/database')
 
 const Event = Sequelize.define('Event', {
   id: {
-    type: DataTypes.STRING(60),
     primaryKey: true,
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
     allowNull: false,
-  },
+ },
   title: {
     type: DataTypes.STRING(60),
     allowNull: false,
