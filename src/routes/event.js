@@ -1,8 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const eventController = require('../controller/eventController');
+const eventController = require("../controller/eventController");
 
 // PUT /api/events/:eventId - Update event details
-router.put('api/events/:eventId', eventController.updateEvent);
+router.put("/:eventId", eventController.updateEvent);
+
+// DELETE /api/events/:eventId - Delete an event
+
+router.delete("/:eventId", eventController.deleteEvent);
 
 module.exports = router;
