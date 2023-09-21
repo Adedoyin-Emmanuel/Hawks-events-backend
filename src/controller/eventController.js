@@ -1,4 +1,3 @@
-
 const BadRequestError = require("../error/errors");
 const Event = require("../models/events");
 
@@ -29,7 +28,6 @@ exports.getEventById = async (req, res, next) => {
   }
 };
 
-
 exports.updateEvent = async (req, res) => {
   const eventId = req.params.eventId;
   const {
@@ -48,7 +46,6 @@ exports.updateEvent = async (req, res) => {
 
   if (!existingEvent) {
     return res.status(404).json({ error: "Event not found" });
-
   }
 
   // Update event details using Sequelize
@@ -101,5 +98,19 @@ exports.postEvent = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
+};
 
+exports.deleteEvent = async (req, res) => {
+  const eventId = req.params.eventId;
+
+  // Check if the event exists
+  const existingEvent = await Event.findByPk(eventId);
+
+  if (!existingEvent) {
+    return res.status(404).json({ error: "Event not found" });
+  }
+
+  // Delete event using Sequelize
+  await existingEvent.destroy();
+  res.status(200).json({ message: "Event deleted successfully" });
 };
